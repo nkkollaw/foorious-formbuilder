@@ -4,7 +4,7 @@ import XLSDownloader from "./XLSDownloader";
 import URLDisplay from "./URLDisplay";
 import {getFormID, getFormURL} from "../utils";
 
-import {DropdownButton, MenuItem}  from "react-bootstrap";
+import {DropdownButton, MenuItem}  from "reactstrap";
 
 export default class AdminView extends Component {
   componentDidMount() {

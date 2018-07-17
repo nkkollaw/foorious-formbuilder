@@ -1,6 +1,6 @@
 import React from "react";
 import FieldListDropdown from "./FieldListDropdown";
-import {Button, ButtonToolbar, ButtonGroup}  from "react-bootstrap";
+import {Button, ButtonToolbar, ButtonGroup}  from "reactstrap";
 
 export default function FormActions(props) {
   const onClick = (event) => {
