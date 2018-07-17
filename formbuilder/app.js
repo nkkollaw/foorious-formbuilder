@@ -6,7 +6,7 @@ const createHashHistory = require("history/lib/createHashHistory");
 
 import routes from "./routes";
 import configureStore from "./store/configureStore";
-import "./bootswatch.less";
+
 import "./styles.css";
 
 const store = configureStore({
