@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import {Dropdown, MenuItem}  from "react-bootstrap";
+import {UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem}  from "reactstrap";
 
 import config from "../../config";
 
@@ -16,17 +16,21 @@ export default class FieldListDropdown extends Component {
       fieldListAction = "switch_field";
     }
     this.state = {
+      open: false,
+
       fieldList: config.fieldList,
       fieldListAction: fieldListAction
     };
+
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
-  handleFieldListAction(fieldIndex, event) {
+  handleSelect(i, e) {
     const fieldList = this.state.fieldList;
-    fieldIndex = parseInt(fieldIndex, 10);
+    i = parseInt(i, 10);
 
-    if (typeof fieldList[fieldIndex] !== "undefined") {
-      const field = fieldList[fieldIndex];
+    if (typeof fieldList[i] !== "undefined") {
+      const field = fieldList[i];
 
       if (this.state.fieldListAction === "switch_field") {
         this.props.switchField(this.props.name, field);
@@ -39,22 +43,22 @@ export default class FieldListDropdown extends Component {
 
   render () {
     return (
-      <Dropdown dropup={this.state.fieldListAction === "add_field"} id="split-button-dropup" className={this.props.className}>
-        <Dropdown.Toggle bsStyle={this.props.bsStyle}>
+      <UncontrolledDropdown direction="down" id="split-button-dropup" className={this.props.className}>
+        <DropdownToggle bsStyle={this.props.bsStyle}>
           {this.props.children}
-        </Dropdown.Toggle>
+        </DropdownToggle>
 
-        <Dropdown.Menu>
-          {this.state.fieldList.map((field, index) => {
-            return <MenuItem key={index}
-                eventKey={index}
-                onSelect={this.handleFieldListAction.bind(this)}
+        <DropdownMenu>
+          {this.state.fieldList.map((field, i) => {
+            return <DropdownItem key={i}
+                eventKey={i}
+                onClick={() => this.handleSelect(i)}
                 ><i className={`glyphicon glyphicon-${field.icon}`} />
                 {field.label}
-              </MenuItem>;
+              </DropdownItem>;
           })}
-        </Dropdown.Menu>
-      </Dropdown>
+        </DropdownMenu>
+      </UncontrolledDropdown>
     );
   }
 }
