@@ -18,8 +18,10 @@ function pickKeys(source, target, excludedKeys) {
     if (isExcluded) {
       continue;
     }
+    
     result[key] = target[key];
   }
+
   return result;
 }
 
@@ -52,23 +54,25 @@ class FieldPropertiesEditor extends Component {
     };
 
     return (
-      <div className="panel panel-default field-editor">
-        <div className="panel-heading clearfix">
-            <strong className="panel-title">Edit {name}</strong>
+      <div className="card field-editor">
+        <div className="card-header">
+            <h4 className="card-title">Edit {name}</h4>
 
             <ButtonToolbar className="pull-right">
               <FieldListDropdown bsStyle="link" {...this.props}>
                 change field <i className="glyphicon glyphicon-cog"/>
               </FieldListDropdown>
+
               <Button bsStyle="link" onClick={onDelete}>
                 delete <i className="glyphicon glyphicon-trash"/>
               </Button>
+              
               <Button bsStyle="link" name="close-btn" onClick={onCancel}>
                 close <i className="glyphicon glyphicon-remove-sign"/>
               </Button>
             </ButtonToolbar>
         </div>
-        <div className="panel-body">
+        <div className="card-body">
           <Form
             schema={uiSchema.editSchema}
             formData={formData}
