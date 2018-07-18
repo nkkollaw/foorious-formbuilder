@@ -41,10 +41,10 @@ Please, take some time to fill it,
         <h3>Neat, your form is now ready!</h3>
         <div className="form-group">
           <ul className="list-inline">
-            <li><button className="btn btn-link"><i className="glyphicon glyphicon-send" />
+            <li><button className="btn btn-link"><i className="fa fa-paper-plane" />
               <a href={emailUrl}> Send by email</a></button>
             </li>
-            <li><button className="btn btn-link"><i className="glyphicon glyphicon-cloud" />
+            <li><button className="btn btn-link"><i className="fa fa-cloud" />
               <a href={twitterUrl}> Tweet it</a></button>
             </li>
             <li>
@@ -52,7 +52,7 @@ Please, take some time to fill it,
               className="btn btn-link"
               data-clipboard-text={userformURL}
               onSuccess={this.onClipboardCopied.bind(this)}>
-              <i className="glyphicon glyphicon-copy" /> <a>{this.state.copied ? "Copied!" : "Copy to clipboard"}</a>
+              <i className="fa fa-copy" /> <a>{this.state.copied ? "Copied!" : "Copy to clipboard"}</a>
             </ClipboardButton>
             </li>
           </ul>

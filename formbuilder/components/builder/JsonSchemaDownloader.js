@@ -8,7 +8,7 @@ export default function JsonSchemaDownloader(props) {
 
   return (
     <a className="list-group-item" download={filename} href={fileContent}>
-      <i className="glyphicon glyphicon-download" />&nbsp;
+      <i className="fa fa-arrow-to-bottom" />&nbsp;
         Download JSON
     </a>
   );

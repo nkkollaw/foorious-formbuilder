@@ -60,15 +60,15 @@ class FieldPropertiesEditor extends Component {
 
             <ButtonToolbar className="pull-right">
               <FieldListDropdown bsStyle="link" {...this.props}>
-                change field <i className="glyphicon glyphicon-cog"/>
+                change field <i className="fa fa-cog"/>
               </FieldListDropdown>
 
               <Button bsStyle="link" onClick={onDelete}>
-                delete <i className="glyphicon glyphicon-trash"/>
+                delete <i className="fa fa-trash"/>
               </Button>
               
               <Button bsStyle="link" name="close-btn" onClick={onCancel}>
-                close <i className="glyphicon glyphicon-remove-sign"/>
+                close <i className="fa fa-times-sign"/>
               </Button>
             </ButtonToolbar>
         </div>
@@ -105,10 +105,10 @@ function DraggableFieldContainer(props) {
           </div>
           <div className="col-sm-3 editable-field-actions">
             <Button bsStyle="link" onClick={onEdit}>
-              edit <i className="glyphicon glyphicon-edit"/>
+              edit <i className="fa fa-pencil"/>
             </Button>
             <Button bsStyle="link" onClick={onDelete}>
-              delete <i className="glyphicon glyphicon-trash"/>
+              delete <i className="fa fa-trash"/>
             </Button>
           </div>
         </div>
@@ -191,14 +191,17 @@ export default class EditableField extends Component {
       <DraggableFieldContainer
         draggableType="moved-field"
         droppableTypes={["moved-field", "field"]}
+
         dragData={props.name}
         onEdit={this.handleEdit.bind(this)}
         onDelete={this.handleDelete.bind(this)}
         onDoubleClick={this.handleEdit.bind(this)}
         onDrop={this.handleDrop.bind(this)}>
+
         <SchemaField {...props}
           schema={this.state.schema}
-          idSchema={{$id: props.name}} />
+          idSchema={{$id: props.name}} 
+        />
       </DraggableFieldContainer>
     );
   }

@@ -53,7 +53,7 @@ export default class FieldListDropdown extends Component {
             return <DropdownItem key={i}
                 eventKey={i}
                 onClick={() => this.handleSelect(i)}
-                ><i className={`glyphicon glyphicon-${field.icon}`} />
+                ><i className={`fa fa-${field.icon}`} />
                 {field.label}
               </DropdownItem>;
           })}

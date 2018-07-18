@@ -29,7 +29,7 @@ const LinkToBuilder = (props) => {
   return (
     <div className="list-group">
       <button type="button" className="list-group-item" onClick={() => {browserHistory.goBack();}}>
-        <i className="glyphicon glyphicon-chevron-left" />
+        <i className="fa fa-chevron-left" />
         {props.text || "Back"}
       </button>
       {children}
@@ -42,7 +42,7 @@ const BackAndCheck = (props) => {
     <div>
       <LinkToBuilder text="Continue editing" {...props} >
         <Link className="list-group-item" to="/builder/json">
-          <i className="glyphicon glyphicon-fullscreen" /> View as JSON
+          <i className="fa fa-external-link" /> View as JSON
         </Link>
       </LinkToBuilder>
       <Check />
@@ -65,7 +65,7 @@ const LinkToHome = () => {
   return (
     <div>
       <Link className="list-group-item" to="/">
-        <i className="glyphicon glyphicon-chevron-left" />
+        <i className="fa fa-chevron-left" />
         "Home"
       </Link>
     </div>
