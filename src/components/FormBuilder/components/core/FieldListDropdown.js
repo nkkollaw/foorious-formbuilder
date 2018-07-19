@@ -53,8 +53,7 @@ export default class FieldListDropdown extends Component {
             return <DropdownItem key={i}
                 eventKey={i}
                 onClick={() => this.handleSelect(i)}
-                ><i className={field.icon} />
-                {field.label}
+                ><i className={field.icon} /> {field.label}
               </DropdownItem>;
           })}
         </DropdownMenu>

@@ -1,53 +1,3 @@
-.spin {
-  -webkit-animation: spin 1s infinite linear;
-  -moz-animation: spin 1s infinite linear;
-  -o-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%; /* IE 9 */
-}
-
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg);
-  }
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Override default navbar
-   Prevent first form element dropdown menu to get out of the viewport */
-.navbar {
-  min-height: 8em;
-}
-
-.check {
-  font-size: 13em;
-  color: #455;
-  margin-left: 50px;
-}
-
-
 .editable-field {
   padding: .5em 0;
 }
@@ -117,14 +67,6 @@ textarea.json-viewer {
 .field-list-entry:active {
   background: #F7F7F7;
   box-shadow: inset 0 -2px 2px -2px rgba(0, 0, 0, .3);
-}
-
-.fa + span {
-  margin-left: .5em;
-}
-
-.fa {
-  margin-right: .4em;
 }
 
 .dropzone-active {

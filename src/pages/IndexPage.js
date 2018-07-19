@@ -30,7 +30,7 @@ class BuilderPage extends React.Component {
           <div className="col-12">
             <h1>Hello!</h1>
 
-            <p><Link to="/builder/"><i className="fa fa-plus-square" />new form</Link></p>
+            <p><Link to="/builder/"><i className="fa fa-plus-square" /> new form</Link></p>
           </div>
         </div>
       </div>

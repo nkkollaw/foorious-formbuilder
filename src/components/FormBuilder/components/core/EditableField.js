@@ -60,15 +60,15 @@ class FieldPropertiesEditor extends Component {
 
             <ButtonToolbar className="pull-right">
               <FieldListDropdown bsStyle="link" {...this.props}>
-                change field <i className="fa fa-cog"/>
+                change field <i className="fa fa-cog" />
               </FieldListDropdown>
 
               <Button bsStyle="link" onClick={onDelete}>
-                delete <i className="fa fa-trash"/>
+                delete <i className="fa fa-trash" />
               </Button>
               
               <Button bsStyle="link" name="close-btn" onClick={onCancel}>
-                close <i className="fa fa-times-sign"/>
+                close <i className="fa fa-times" />
               </Button>
             </ButtonToolbar>
         </div>

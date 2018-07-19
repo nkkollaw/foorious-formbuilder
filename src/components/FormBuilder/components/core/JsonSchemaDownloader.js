@@ -8,8 +8,7 @@ export default function JsonSchemaDownloader(props) {
 
   return (
     <a className="list-group-item" download={filename} href={fileContent}>
-      <i className="fa fa-arrow-to-bottom" />&nbsp;
-        Download JSON
+      <i className="fa fa-arrow-to-bottom" /> Download JSON
     </a>
   );
 }
