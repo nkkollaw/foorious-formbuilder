@@ -4,7 +4,7 @@ import form from "./form";
 import notifications from "./notifications";
 import serverStatus from "./serverStatus";
 import records from "./records";
-import dragndrop from "./dragndrop";
+// import dragndrop from "./dragndrop";
 
 
 const rootReducer = combineReducers({
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   form,
   serverStatus,
   records,
-  dragndrop
+  // dragndrop
 });
 
 export default rootReducer;

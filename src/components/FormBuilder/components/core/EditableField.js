@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Draggable, Droppable } from "react-drag-and-drop";
 import Form from "../../lib/react-jsonschema-form-0.40.0/src/components/Form.js";
 import SchemaField from "../../lib/react-jsonschema-form-0.40.0/src/components/fields/SchemaField";
 import { ButtonToolbar, Button } from "reactstrap";
@@ -79,15 +78,15 @@ function FieldContainer(props) {
     onDelete,
   } = props;
   return (
-    <div className="row editable-field" style={{cursor: 'move'}}>
-    <div className="col-9">
-      {children}
+    <div className="row">
+      <div className="col-9">
+        {children}
+      </div>
+      <div className="col-3 text-right">
+        <a href="javascript:void(0);" className="btn btn-secondary mr-2" onClick={onEdit}><i className="fa fa-pencil" /> edit</a>
+        <a href="javascript:void(0);" className="btn btn-danger" onClick={onDelete}><i className="fa fa-trash" /> delete</a>
+      </div>
     </div>
-    <div className="col-3 text-right">
-      <a href="javascript:void(0);" className="btn btn-secondary mr-2" onClick={onEdit}><i className="fa fa-pencil" /> edit</a>
-      <a href="javascript:void(0);" className="btn btn-danger" onClick={onDelete}><i className="fa fa-trash" /> delete</a>
-    </div>
-  </div>
   );
 }
 
