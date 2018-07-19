@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from "react-redux"
 
 import Settings from '../../config.js';
 import Auth from '../../services/Auth.js';
@@ -6,16 +7,8 @@ import API from '../../utils/API.js';
 
 import Spinner from '../../components/Spinner';
 
-// import FormBuilder_Header from '../../components/FormBuilder/Header';
-// import FormBuilder_NotificationList from '../../components/FormBuilder/NotificationList';
-// import FormBuilder_FieldList from '../../components/FormBuilder/FieldList';
-// import FormBuilder_EditableField from '../../components/FormBuilder/EditableField';
-// import FormBuilder_FieldPropertiesEditor from '../../components/FormBuilder/FieldPropertiesEditor';
-// import FormBuilder_SchemaField from '../../components/FormBuilder/SchemaField';
-
+import configureStore from "../../components/FormBuilder/store/configureStore";
 import FormBuilder_FormContainer from '../../components/FormBuilder/containers/builder/FormContainer';
-
-// namespace formbuilder
 let FormBuilder = {
   FormContainer: FormBuilder_FormContainer
 };
@@ -37,6 +30,10 @@ class OverviewPage extends React.Component {
       fontSize: '18px'
     };
 
+    const store = configureStore({
+      notifications: [],
+    });
+
     if (this.state.error) {
       return (
         <div className="container">
@@ -54,22 +51,12 @@ class OverviewPage extends React.Component {
       return (
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className="col-12">
               <h1><i className="fa fa-graduation-cap" /> Hello!</h1>
 
-              <FormBuilder.FormContainer />
-              {/* <NotificationList />
-              <FieldList>
-                <Draggable />
-                <Draggable />
-                ...
-              </FieldList />
-              <Form>
-                <EditableField>
-                  <FieldPropertiesEditor /> or <SchemaField />
-                </EditableField>
-                <Droppable />
-              <Form />               */}
+              <Provider store={store}>
+                <FormBuilder.FormContainer />
+              </Provider>
             </div>
           </div>
         </div>
