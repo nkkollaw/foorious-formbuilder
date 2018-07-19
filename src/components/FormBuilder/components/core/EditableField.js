@@ -4,6 +4,7 @@ import SchemaField from "../../lib/react-jsonschema-form-0.40.0/src/components/f
 import { ButtonToolbar, Button } from "reactstrap";
 import FieldListDropdown from "./FieldListDropdown";
 
+import { dirname } from "path";
 /**
  * Recopies the keys listed in "source" using the values in the "target"
  * object, excluding keys listed in the "excludedKey" argument.
@@ -40,7 +41,7 @@ class FieldPropertiesEditor extends Component {
   }
 
   onChange({formData}) {
-    this.setState({editedSchema: formData});
+    // this.setState({editedSchema: formData});
   }
 
   render() {
@@ -55,14 +56,29 @@ class FieldPropertiesEditor extends Component {
     return (
       <div className="card field-editor">
         <div className="card-header">
-            <h2 className="card-title">Edit {name}<Button bsStyle="link" name="close-btn" onClick={onCancel} className="float-right"><i className="fa fa-times" /></Button></h2>
+            <h2 className="card-title">Edit {name} <Button bsStyle="link" name="close-btn" onClick={onCancel} className="float-right"><i className="fa fa-times" /></Button></h2>
         </div>
         <div className="card-body">
           <Form
             schema={uiSchema.editSchema}
             formData={formData}
             onChange={this.onChange.bind(this)}
-            onSubmit={onUpdate}>
+            FieldTemplate={function(props) {
+              console.dir(props);
+              const {id, classNames, label, help, required, description, errors, children} = props;
+        
+              return (
+                <div className={"form-group " + classNames}>
+                  <label htmlFor={id}>{label} {required ? "*" : null}</label>
+                  {description}
+                  {children}
+                  {errors}
+                  {help}
+                </div>
+              );
+            }.bind(this)}
+            onSubmit={onUpdate}
+            >
             <button type="submit" className="btn btn-info pull-right">Submit</button>
           </Form>
         </div>
@@ -114,8 +130,7 @@ export default class EditableField extends Component {
     const updated = pickKeys(this.props.schema, formData, ["type"]);
     const schema = {...this.props.schema, ...updated};
     this.setState({edit: false, schema});
-    this.props.updateField(
-      this.props.name, schema, formData.required, formData.title);
+    this.props.updateField(this.props.name, schema, formData.required, formData.title);
   }
 
   handleDelete(event) {

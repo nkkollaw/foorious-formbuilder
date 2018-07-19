@@ -156,7 +156,7 @@ export default class Form extends Component {
     const _SchemaField = registry.fields.SchemaField;
 
     return (
-      <form className={className ? className : "rjsf"}
+      <form className={'form-inline' + (className ? className : "rjsf")}
         id={id}
         name={name}
         method={method}
@@ -166,6 +166,7 @@ export default class Form extends Component {
         encType={enctype}
         acceptCharset={acceptcharset}
         onSubmit={this.onSubmit}>
+
         {this.renderErrors()}
         <_SchemaField
           schema={schema}

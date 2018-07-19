@@ -91,10 +91,11 @@ function DefaultTemplate(props) {
   if (hidden) {
     return children;
   }
+
   return (
     <div className={classNames}>
-      {displayLabel ? <Label label={label} required={required} id={id} /> : null}
-      {displayLabel && description ? description : null}
+      {displayLabel ? <h2 className="kinto-formbuilder-label"><Label label={label} required={required} id={id} /></h2> : null}
+      {displayLabel && description ? <p className="kinto-formbuilder-descr">{description}</p> : null}
       {children}
       {errors}
       {help}

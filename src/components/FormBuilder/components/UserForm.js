@@ -22,7 +22,11 @@ export default class UserForm extends Component {
     };
     
     return (<div className="narrow">
-      <Form schema={this.props.schema} uiSchema={this.props.uiSchema} onSubmit={onSubmit} />
+      <Form 
+        schema={this.props.schema} 
+        uiSchema={this.props.uiSchema} 
+        onSubmit={onSubmit} 
+      />
 
       <p className="small">This form was created with the <a href={origin}>{config.projectName}</a>.</p>
     </div>
