@@ -329,11 +329,11 @@ class ArrayField extends Component {
     const {SchemaField} = this.props.registry.fields;
     const {disabled, readonly} = this.props;
     const hasToolbar = removable || canMoveUp || canMoveDown;
-    const btnStyle = {flex: 1, paddingLeft: 6, paddingRight: 6, fontWeight: "bold"};
+    const btnStyle = {}; //{flex: 1, paddingLeft: 6, paddingRight: 6, fontWeight: "bold"};
 
     return (
-      <div key={index} className="array-item">
-        <div className={hasToolbar ? "col-xs-10" : "col-xs-12"}>
+      <div key={index} className="row array-item pl-3 pr-0" style={{width: '100%'}}>
+        <div className={hasToolbar ? "col-10" : "col-12"}>
           <SchemaField
             schema={itemSchema}
             uiSchema={itemUiSchema}
@@ -347,33 +347,38 @@ class ArrayField extends Component {
             readonly={this.props.readonly} />
         </div>
         {
-          hasToolbar ?
-            <div className="col-xs-2 array-item-toolbox text-right">
-              <div className="btn-group" style={{display: "flex"}}>
-                {canMoveUp || canMoveDown ?
-                  <button type="button" className="btn btn-default array-item-move-up"
-                          style={btnStyle}
-                          tabIndex="-1"
-                          disabled={disabled || readonly || !canMoveUp}
-                          onClick={this.onReorderClick(index, index - 1)}>⬆</button>
-                  : null}
-                {canMoveUp || canMoveDown ?
-                  <button type="button" className="btn btn-default array-item-move-down"
-                          style={btnStyle}
-                          tabIndex="-1"
-                          disabled={disabled || readonly || !canMoveDown}
-                          onClick={this.onReorderClick(index, index + 1)}>⬇</button>
-                  : null}
-                {removable ?
+          hasToolbar ? (
+            <div className="col-2 array-item-toolbox text-right pr-0">
+              {
+                canMoveUp || canMoveDown ? (
+                  <div className="btn-group mr-2">
+                    <button type="button" className="btn btn-default array-item-move-up"
+                      style={btnStyle}
+                      tabIndex="-1"
+                      disabled={disabled || readonly || !canMoveUp}
+                      onClick={this.onReorderClick(index, index - 1)}
+                    >⬆</button>
+                    <button type="button" className="btn btn-default array-item-move-down"
+                      style={btnStyle}
+                      tabIndex="-1"
+                      disabled={disabled || readonly || !canMoveDown}
+                      onClick={this.onReorderClick(index, index + 1)}
+                    >⬇</button>
+                  </div>
+                ): null
+              }
+              {
+                removable ? (
                   <button type="button" className="btn btn-danger array-item-remove"
-                          style={btnStyle}
-                          tabIndex="-1"
-                          disabled={disabled || readonly}
-                          onClick={this.onDropIndexClick(index)}>✖</button>
-                  : null}
-              </div>
+                    style={btnStyle}
+                    tabIndex="-1"
+                    disabled={disabled || readonly}
+                    onClick={this.onDropIndexClick(index)}
+                  >✖</button>
+                ) : null
+              }
             </div>
-          : null
+          ) : null
         }
       </div>
     );
@@ -383,8 +388,8 @@ class ArrayField extends Component {
 function AddButton({onClick, disabled}) {
   return (
     <div className="row">
-      <p className="col-xs-2 col-xs-offset-10 array-item-add text-right">
-        <button type="button" className="btn btn-info col-xs-12"
+      <p className="col-2 col-offset-10 array-item-add text-right">
+        <button type="button" className="btn btn-info col-12"
                 tabIndex="-1" onClick={onClick}
                 disabled={disabled} style={{fontWeight: "bold"}}>➕</button>
       </p>
