@@ -44,7 +44,7 @@ function unique(array) {
 function addField(state, field) {
   // Generating a usually temporary random, unique field name.
   state.currentIndex += 1;
-  const name = `Domanda ${state.currentIndex}`;
+  const name = `Question ${state.currentIndex}`;
   const _slug = slugify(name);
   state.schema.properties[_slug] = {...field.jsonSchema, title: name};
   state.uiSchema[_slug] = field.uiSchema;

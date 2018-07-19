@@ -21,7 +21,7 @@ export default {
           type: "object",
           properties: {
             title: {type: "string", title: "Label"},
-            description: {type: "string", title: "Example value"},
+            description: {type: "string", title: "Instructions"},
             required: {type: "boolean"},
           }
         },
@@ -44,7 +44,7 @@ export default {
           type: "object",
           properties: {
             title: {type: "string", title: "Label"},
-            description: {type: "string", title: "Example value"},
+            description: {type: "string", title: "Instructions"},
             required: {type: "boolean"},
           }
         },
