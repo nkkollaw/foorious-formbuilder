@@ -145,12 +145,12 @@ class GeoPosition extends Component {
         <code>uiSchema</code> as the <code>ui:field</code> to use for this
         schema.</p>
         <div className="row">
-          <div className="col-sm-6">
+          <div className="col-6">
             <label>Latitude</label>
             <input className="form-control" type="number" value={lat} step="0.00001"
               onChange={this.onChange("lat")} />
           </div>
-          <div className="col-sm-6">
+          <div className="col-6">
             <label>Longitude</label>
             <input className="form-control" type="number" value={lon} step="0.00001"
               onChange={this.onChange("lon")} />
@@ -322,34 +322,34 @@ class App extends Component {
         <div className="page-header">
           <h1>react-jsonschema-form</h1>
           <div className="row">
-            <div className="col-sm-8">
+            <div className="col-8">
               <Selector onSelected={this.load} />
             </div>
-            <div className="col-sm-2">
+            <div className="col-2">
               <Form schema={liveValidateSchema}
                     formData={liveValidate}
                     onChange={this.setLiveValidate}><div/></Form>
             </div>
-            <div className="col-sm-2">
+            <div className="col-2">
               <ThemeSelector theme={theme} select={this.onThemeSelected} />
             </div>
           </div>
         </div>
-        <div className="col-sm-7">
+        <div className="col-7">
           <Editor title="JSONSchema" theme={editor} code={toJson(schema)}
             onChange={this.onSchemaEdited} />
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-6">
               <Editor title="UISchema" theme={editor} code={toJson(uiSchema)}
                 onChange={this.onUISchemaEdited} />
             </div>
-            <div className="col-sm-6">
+            <div className="col-6">
               <Editor title="formData" theme={editor} code={toJson(formData)}
                 onChange={this.onFormDataEdited} />
             </div>
           </div>
         </div>
-        <div className="col-sm-5">
+        <div className="col-5">
           {!this.state.form ? null :
             <Form
               liveValidate={liveValidate}
