@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 
 import Layout from './pages/Layout';
-
-import IndexPage from './pages/index/IndexPage';
+import IndexPage from './pages/IndexPage';
+import BuilderPage from './pages/BuilderPage';
 
 class App extends React.Component {
   render() {
@@ -17,6 +17,7 @@ class App extends React.Component {
       <Router>
         <Layout>
           <Route exact path="/" component={IndexPage} />
+          <Route path="/builder/" component={BuilderPage} />
         </Layout>
       </Router>
     );

@@ -13,8 +13,7 @@ class Layout extends React.Component {
     };
 
     const indexButtonClass = 'btn ' + (window.location.pathname == '/' ? 'btn-primary' : 'btn-secondary') + ' align-middle'
-    const page1ButtonClass = 'btn ' + (window.location.pathname.indexOf('/edu') === 0 ? 'btn-primary' : 'btn-secondary') + ' align-middle';
-    const page2ButtonClass = 'btn ' + (window.location.pathname.indexOf('/users') === 0 ? 'btn-primary' : 'btn-secondary') + ' align-middle';
+    const page1ButtonClass = 'btn ' + (window.location.pathname.indexOf('/builder') === 0 ? 'btn-primary' : 'btn-secondary') + ' align-middle';
 
     return (
       <div>
@@ -23,11 +22,8 @@ class Layout extends React.Component {
             <div className="row">
               <div className="col-12">
                 <div className="btn-group my-2">
-                  <Link to="/" className={indexButtonClass} style={buttonStyle}>
-                    HOME
-                  </Link>
-                  <Link to="/builder/" className={page1ButtonClass} style={buttonStyle}>builder</Link>
-                  <Link to="/etc/" className={page2ButtonClass} style={buttonStyle}>etc.</Link>
+                  <Link to="/" className={indexButtonClass} style={buttonStyle}>Home</Link>
+                  <Link to="/builder/" className={page1ButtonClass} style={buttonStyle}>Builder</Link>
                 </div>                
               </div>
             </div>
