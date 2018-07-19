@@ -129,6 +129,7 @@ export default class EditableField extends Component {
 
   handleEdit(event) {
     event.preventDefault();
+    
     if (shouldHandleDoubleClick(event.target)) {
       this.setState({edit: true});
     }
