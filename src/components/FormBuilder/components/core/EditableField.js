@@ -56,21 +56,7 @@ class FieldPropertiesEditor extends Component {
     return (
       <div className="card field-editor">
         <div className="card-header">
-            <h4 className="card-title">Edit {name}</h4>
-
-            <ButtonToolbar className="pull-right">
-              <FieldListDropdown bsStyle="link" {...this.props}>
-                change field <i className="fa fa-cog" />
-              </FieldListDropdown>
-
-              <Button bsStyle="link" onClick={onDelete}>
-                delete <i className="fa fa-trash" />
-              </Button>
-              
-              <Button bsStyle="link" name="close-btn" onClick={onCancel}>
-                close <i className="fa fa-times" />
-              </Button>
-            </ButtonToolbar>
+            <h2 className="card-title">Edit {name}<Button bsStyle="link" name="close-btn" onClick={onCancel} className="float-right"><i className="fa fa-times" /></Button></h2>
         </div>
         <div className="card-body">
           <Form
@@ -86,29 +72,22 @@ class FieldPropertiesEditor extends Component {
   }
 }
 
-function DraggableFieldContainer(props) {
+function FieldContainer(props) {
   const {
     children,
-    dragData,
     onEdit,
     onDelete,
-    onDoubleClick,
-    onDrop
   } = props;
   return (
-    <Draggable type="moved-field" data={dragData}>
-      <Droppable types={["field", "moved-field"]}  onDrop={onDrop}>
-        <div className="row editable-field" onDoubleClick={onDoubleClick}>
-          <div className="col-9">
-            {children}
-          </div>
-          <div className="col-3">
-            <a href="javascript:void(0);" className="btn btn-secondary" onClick={onEdit}><i className="fa fa-pencil" /> edit</a>
-            <a href="javascript:void(0);" className="btn btn-danger" onClick={onDelete}><i className="fa fa-trash" /> delete</a>
-          </div>
-        </div>
-      </Droppable>
-    </Draggable>
+    <div className="row editable-field" style={{cursor: 'move'}}>
+    <div className="col-9">
+      {children}
+    </div>
+    <div className="col-3 text-right">
+      <a href="javascript:void(0);" className="btn btn-secondary mr-2" onClick={onEdit}><i className="fa fa-pencil" /> edit</a>
+      <a href="javascript:void(0);" className="btn btn-danger" onClick={onDelete}><i className="fa fa-trash" /> delete</a>
+    </div>
+  </div>
   );
 }
 
@@ -184,21 +163,15 @@ export default class EditableField extends Component {
     }
 
     return (
-      <DraggableFieldContainer
-        draggableType="moved-field"
-        droppableTypes={["moved-field", "field"]}
-
-        dragData={props.name}
+      <FieldContainer
         onEdit={this.handleEdit.bind(this)}
         onDelete={this.handleDelete.bind(this)}
-        onDoubleClick={this.handleEdit.bind(this)}
-        onDrop={this.handleDrop.bind(this)}>
-
+      >
         <SchemaField {...props}
           schema={this.state.schema}
           idSchema={{$id: props.name}} 
         />
-      </DraggableFieldContainer>
+      </FieldContainer>
     );
   }
 }
