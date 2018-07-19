@@ -97,19 +97,14 @@ function DraggableFieldContainer(props) {
   } = props;
   return (
     <Draggable type="moved-field" data={dragData}>
-      <Droppable types={["field", "moved-field"]}
-        onDrop={onDrop}>
+      <Droppable types={["field", "moved-field"]}  onDrop={onDrop}>
         <div className="row editable-field" onDoubleClick={onDoubleClick}>
-          <div className="col-sm-9">
+          <div className="col-9">
             {children}
           </div>
-          <div className="col-sm-3 editable-field-actions">
-            <Button bsStyle="link" onClick={onEdit}>
-              edit <i className="fa fa-pencil"/>
-            </Button>
-            <Button bsStyle="link" onClick={onDelete}>
-              delete <i className="fa fa-trash"/>
-            </Button>
+          <div className="col-3">
+            <a href="javascript:void(0);" className="btn btn-secondary" onClick={onEdit}><i className="fa fa-pencil" /> edit</a>
+            <a href="javascript:void(0);" className="btn btn-danger" onClick={onDelete}><i className="fa fa-trash" /> delete</a>
           </div>
         </div>
       </Droppable>
