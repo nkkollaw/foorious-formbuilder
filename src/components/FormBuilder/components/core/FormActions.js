@@ -25,7 +25,7 @@ export default function FormActions(props) {
         </FieldListDropdown>
       </ButtonToolbar>
       <ButtonGroup className="pull-right">
-        <Button onClick={() => confirm("This action will reset all unsaved changes, Are you sure?") && props.resetForm()}>
+        <Button onClick={() => window.confirm("This action will reset all unsaved changes, Are you sure?") && props.resetForm()}>
           <i className="fa fa-times" />
           Reset <span className="hidden-xs">form</span>
         </Button>

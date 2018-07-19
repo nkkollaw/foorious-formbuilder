@@ -146,7 +146,7 @@ export default class EditableField extends Component {
 
   handleDelete(event) {
     event.preventDefault();
-    if (confirm("Are you sure you want to delete this field?")) {
+    if (window.confirm("Are you sure you want to delete this field?")) {
       this.props.removeField(this.props.name);
     }
   }

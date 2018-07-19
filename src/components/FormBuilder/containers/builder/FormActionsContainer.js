@@ -1,6 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import FormActions from "../../components/builder/FormActions";
+import FormActions from "../../components/core/FormActions";
 import * as FieldListActions from "../../actions/fieldlist";
 import config from "../../config";
 
