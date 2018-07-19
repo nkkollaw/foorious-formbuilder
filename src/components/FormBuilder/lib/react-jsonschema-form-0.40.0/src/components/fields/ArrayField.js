@@ -374,7 +374,7 @@ class ArrayField extends Component {
                     tabIndex="-1"
                     disabled={disabled || readonly}
                     onClick={this.onDropIndexClick(index)}
-                  >✖</button>
+                  ><i className="fa fa-trash" /></button>
                 ) : null
               }
             </div>
