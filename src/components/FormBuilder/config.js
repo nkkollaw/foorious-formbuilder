@@ -1,5 +1,5 @@
 export default {
-  projectName: process.env.PROJECT_NAME || "Formbuilder",
+  projectName: process.env.PROJECT_NAME || "FormBuilder",
   server: {
     remote: process.env.SERVER_URL,
     bucket: "formbuilder",
@@ -8,11 +8,11 @@ export default {
   fieldList: [
     {
       id: "text",
-      icon: "text-color",
-      label: "Short text",
+      icon: "fa fa-minus",
+      label: "Text",
       jsonSchema: {
         type: "string",
-        title: "Edit me",
+        title: "Edit",
         description: "",
         default: ""
       },
@@ -30,11 +30,11 @@ export default {
     },
     {
       id: "multilinetext",
-      icon: "align-left",
-      label: "Long text",
+      icon: "fa fa-bars",
+      label: "Multi-line text",
       jsonSchema: {
         type: "string",
-        title: "Edit me",
+        title: "Edit",
         description: "",
         default: ""
       },
@@ -53,11 +53,11 @@ export default {
     },
     {
       id: "checkbox",
-      icon: "check",
+      icon: "fa fa-check",
       label: "Checkbox",
       jsonSchema: {
         type: "boolean",
-        title: "Edit me",
+        title: "Edit",
         default: false,
       },
       uiSchema: {
@@ -72,80 +72,13 @@ export default {
       formData: {}
     },
     {
-      id: "multiple-checkbox",
-      icon: "check",
-      label: "Multiple choices",
-      jsonSchema: {
-        type: "array",
-        title: "A multiple choices list",
-        items: {
-          type: "string",
-          enum: ["choice 1", "choice 2", "choice 3"],
-        },
-        uniqueItems: true,
-      },
-      uiSchema: {
-        "ui:widget": "checkboxes",
-        editSchema: {
-          type: "object",
-          properties: {
-            title: {type: "string", title: "Label"},
-            required: {type: "boolean"},
-            items: {
-              type: "object",
-              title: "Choices",
-              properties: {
-                enum: {
-                  title: null,
-                  type: "array",
-                  items: {
-                    type: "string"
-                  },
-                  default: ["choice 1", "choice 2", "choice 3"],
-                }
-              }
-            }
-          }
-        },
-      },
-      formData: {}
-    },
-    {
-      id: "radiobuttonlist",
-      icon: "list",
-      label: "Choice list",
-      jsonSchema: {
-        type: "string",
-        title: "Edit me",
-        enum: ["option 1", "option 2", "option 3"],
-      },
-      uiSchema: {
-        "ui:widget": "radio",
-        editSchema: {
-          type: "object",
-          properties: {
-            title: {type: "string", title: "Label"},
-            required: {type: "boolean"},
-            enum: {
-              type: "array",
-              title: "Options",
-              items: {
-                type: "string"
-              }
-            }
-          }
-        },
-      },
-      formData: {}
-    },
-    {
       id: "select",
-      icon: "chevron-down",
-      label: "Select List",
+      icon: "fa fa-list",
+      label: "Single choice (select)",
       jsonSchema: {
         type: "string",
         format: "string",
-        title: "Edit me",
+        title: "Edit",
         enum: ["option 1", "option 2", "option 3"],
       },
       uiSchema: {
@@ -168,13 +101,80 @@ export default {
       formData: {}
     },
     {
+      id: "radiobuttonlist",
+      icon: "fa fa-list",
+      label: "Single choice (radio)",
+      jsonSchema: {
+        type: "string",
+        title: "Edit",
+        enum: ["option 1", "option 2", "option 3"],
+      },
+      uiSchema: {
+        "ui:widget": "radio",
+        editSchema: {
+          type: "object",
+          properties: {
+            title: {type: "string", title: "Label"},
+            required: {type: "boolean"},
+            enum: {
+              type: "array",
+              title: "Options",
+              items: {
+                type: "string"
+              }
+            }
+          }
+        },
+      },
+      formData: {}
+    },    
+    {
+      id: "multiple-checkbox",
+      icon: "fa fa-tasks",
+      label: "Multiple choice (checkboxes)",
+      jsonSchema: {
+        type: "array",
+        title: "A multiple choices list",
+        items: {
+          type: "string",
+          enum: ["risposta 1", "risposta 2", "risposta 3"],
+        },
+        uniqueItems: true,
+      },
+      uiSchema: {
+        "ui:widget": "checkboxes",
+        editSchema: {
+          type: "object",
+          properties: {
+            title: {type: "string", title: "Label"},
+            required: {type: "boolean"},
+            items: {
+              type: "object",
+              title: "Choices",
+              properties: {
+                enum: {
+                  title: null,
+                  type: "array",
+                  items: {
+                    type: "string"
+                  },
+                  default: ["risposta 1", "risposta 2", "risposta 3"],
+                }
+              }
+            }
+          }
+        },
+      },
+      formData: {}
+    },
+    {
       id: "date",
-      icon: "calendar",
+      icon: "fa fa-calendar",
       label: "Date",
       jsonSchema: {
         type: "string",
         format: "date",
-        title: "Edit me",
+        title: "Edit",
       },
       uiSchema: {
         "ui:widget": "alt-date",

@@ -14,14 +14,16 @@ export default class UserForm extends Component {
 
   render() {
     const origin = window.location.origin + window.location.pathname;
+
     const onSubmit = ({formData}) => {
       this.props.submitRecord(formData, this.props.params.id, () => {
         this.props.history.pushState(null, "/form/data-sent");
       });
     };
+    
     return (<div className="narrow">
-      <Form schema={this.props.schema} uiSchema={this.props.uiSchema}
-        onSubmit={onSubmit}/>
+      <Form schema={this.props.schema} uiSchema={this.props.uiSchema} onSubmit={onSubmit} />
+
       <p className="small">This form was created with the <a href={origin}>{config.projectName}</a>.</p>
     </div>
 

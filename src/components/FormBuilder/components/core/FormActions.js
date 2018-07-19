@@ -21,7 +21,7 @@ export default function FormActions(props) {
       <ButtonToolbar className="builder-inner-actions">
         <FieldListDropdown className="pull-right" {...props}>
           <i className="fa fa-plus" />
-          Add a field
+          Add field
         </FieldListDropdown>
       </ButtonToolbar>
       <ButtonGroup className="pull-right">
