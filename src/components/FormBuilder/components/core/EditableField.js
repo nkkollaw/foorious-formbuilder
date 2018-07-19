@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Draggable, Droppable } from "react-drag-and-drop";
-import Form from "react-jsonschema-form";
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
+import Form from "../../lib/react-jsonschema-form-0.40.0/src/components/Form.js";
+import SchemaField from "../../lib/react-jsonschema-form-0.40.0/src/components/fields/SchemaField";
 import { ButtonToolbar, Button } from "reactstrap";
 import FieldListDropdown from "./FieldListDropdown";
 

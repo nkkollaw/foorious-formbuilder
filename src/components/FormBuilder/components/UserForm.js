@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from "react-jsonschema-form";
+import Form from "../lib/react-jsonschema-form-0.40.0/src/components/Form.js";
 import config from "../config";
 
 export default class UserForm extends Component {
