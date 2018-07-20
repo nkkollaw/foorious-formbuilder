@@ -30,6 +30,7 @@ function mapDispatchToProps(dispatch) {
     {}, TitleField.defaultProps || {}, actions);
   DescriptionField.defaultProps = Object.assign(
     {}, DescriptionField.defaultProps || {}, actions);
+
   return actions;
 }
 

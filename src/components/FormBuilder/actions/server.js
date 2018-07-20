@@ -82,50 +82,56 @@ export function publishForm(callback) {
       delete schema.required;
     }
 
-    dispatch({type: FORM_PUBLICATION_PENDING});
     const adminToken = uuid.v4().replace(/-/g, "");
     const formID = getFormID(adminToken);
 
-    // Create a client authenticated as the admin.
-    const bucket = new KintoClient(
-      config.server.remote,
-      {headers: getAuthenticationHeaders(adminToken)}
-    ).bucket(config.server.bucket);
+    callback({form});
 
-    // The name of the collection is the user token so the user deals with
-    // less different concepts.
-    bucket.createCollection(formID, {
-      data: {schema, uiSchema},
-      permissions: {
-        "record:create": ["system.Authenticated"]
-      }
-    })
-    .then(({data}) => {
-      dispatch({
-        type: FORM_PUBLICATION_DONE,
-        collection: data.id,
-      });
-      if (callback) {
-        callback({
-          collection: data.id,
-          adminToken,
-        });
-      }
-    })
-    .catch((error) => {
-      if (error.response === undefined) {
-        throw error;
-      }
-      // If the bucket doesn't exist, try to create it.
-      if (error.response.status === 403 && retry === true) {
-        return initializeBucket().then(() => {
-          thunk(dispatch, getState, false);
-        });
-      }
-      connectivityIssues(dispatch, "We were unable to publish your form.");
-      dispatch({type: FORM_PUBLICATION_FAILED});
-    });
+    // dispatch({type: FORM_PUBLICATION_PENDING});
+    // const adminToken = uuid.v4().replace(/-/g, "");
+    // const formID = getFormID(adminToken);
+
+    // // Create a client authenticated as the admin.
+    // const bucket = new KintoClient(
+    //   config.server.remote,
+    //   {headers: getAuthenticationHeaders(adminToken)}
+    // ).bucket(config.server.bucket);
+
+    // // The name of the collection is the user token so the user deals with
+    // // less different concepts.
+    // bucket.createCollection(formID, {
+    //   data: {schema, uiSchema},
+    //   permissions: {
+    //     "record:create": ["system.Authenticated"]
+    //   }
+    // })
+    // .then(({data}) => {
+    //   dispatch({
+    //     type: FORM_PUBLICATION_DONE,
+    //     collection: data.id,
+    //   });
+    //   if (callback) {
+    //     callback({
+    //       collection: data.id,
+    //       adminToken,
+    //     });
+    //   }
+    // })
+    // .catch((error) => {
+    //   if (error.response === undefined) {
+    //     throw error;
+    //   }
+    //   // If the bucket doesn't exist, try to create it.
+    //   if (error.response.status === 403 && retry === true) {
+    //     return initializeBucket().then(() => {
+    //       thunk(dispatch, getState, false);
+    //     });
+    //   }
+    //   connectivityIssues(dispatch, "We were unable to publish your form.");
+    //   dispatch({type: FORM_PUBLICATION_FAILED});
+    // });
   };
+
   return thunk;
 }
 

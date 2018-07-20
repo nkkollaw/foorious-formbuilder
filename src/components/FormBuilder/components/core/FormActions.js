@@ -3,9 +3,9 @@ import FieldListDropdown from "./FieldListDropdown";
 import {Button, ButtonToolbar, ButtonGroup}  from "reactstrap";
 
 export default function FormActions(props) {
-  const onClick = (event) => {
-    props.publishForm(({collection, adminToken}) => {
-      props.history.pushState(null, `/builder/published/${adminToken}`);
+  const handleClick = (event) => {
+    props.publishForm((data) => {
+      return props.onSubmit(data);
     });
   };
 
@@ -27,7 +27,7 @@ export default function FormActions(props) {
       </header>
 
       <footer>
-        <Button bsStyle="success" onClick={onClick}>
+        <Button bsStyle="success" onClick={handleClick}>
           <i className={`${saveIconClass}`} /> Save your form
         </Button>
       </footer>

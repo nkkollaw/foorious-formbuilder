@@ -14,11 +14,16 @@ class BuilderPage extends React.Component {
     super(props);
     
     this.state = {
-      fetching: false,
-      timeFetching: 0,
-            
-      error: ''
+      form: null
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(form) {
+    this.setState({
+      form
+    });
   }
 
   render() {
@@ -33,8 +38,14 @@ class BuilderPage extends React.Component {
             <h1><i className="fa fa-plus-square" /> New form</h1>
 
             <Provider store={store}>
-              <FormBuilder.FormContainer />
+              <FormBuilder.FormContainer onSubmit={this.handleSubmit} />
             </Provider>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 mt-4">
+            <h2>Form JSON</h2>
+            <code>{JSON.stringify(this.state.form)}</code>
           </div>
         </div>
       </div>

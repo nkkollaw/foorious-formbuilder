@@ -16,6 +16,10 @@ export default function Form(props) {
     }
   };
 
+  const handleSubmit = function(data) {
+    return props.onSubmit(data);
+  }
+
   return (
     <div>
       {error ? <div className="alert alert-danger">{error}</div> : <div/>}
@@ -23,7 +27,7 @@ export default function Form(props) {
         <SchemaField {...props} registry={registry} />
       </div>
 
-      <FormActionsContainer {...props}/>
+      <FormActionsContainer {...props} onSubmit={handleSubmit} />
     </div>
   );
 }
