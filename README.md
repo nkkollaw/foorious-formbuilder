@@ -1,4 +1,4 @@
-# Foorious Formbuilder--Create your own forms and surveys.
+# Foorious Formbuilder--create your own forms and surveys.
 
 Originally Kinto Formbuilder but doesn't use Kinto anymore, so might as well rename it.
 
@@ -47,7 +47,7 @@ function handleSubmit(form) {
 
 ### JSON
 
-JSON returned in based on version 0.40 of `react-jsonschema-form` (see https://github.com/mozilla-services/react-jsonschema-form/releases/tag/v0.40.0/). Tried upgrading to a newer version, but nothing works. Might make it work in the future.
+JSON returned in based on version 0.40 of `react-jsonschema-form` (see https://mozilla-services.github.io/react-jsonschema-form/, https://github.com/mozilla-services/react-jsonschema-form/). Tried upgrading to a newer version, but nothing works. Might make it work in the future, it's not a bad library for this use.
 
 ## Roadmap
 
