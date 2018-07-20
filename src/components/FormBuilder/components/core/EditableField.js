@@ -37,6 +37,7 @@ function shouldHandleDoubleClick(node) {
 class FieldPropertiesEditor extends Component {
   constructor(props) {
     super(props);
+
     this.state = {editedSchema: props.schema};
   }
 

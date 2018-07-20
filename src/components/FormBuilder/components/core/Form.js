@@ -17,7 +17,7 @@ export default function Form(props) {
   };
 
   const handleSubmit = function(data) {
-    return props.onSubmit(data);
+    return props.onSubmit(data.form);
   }
 
   return (

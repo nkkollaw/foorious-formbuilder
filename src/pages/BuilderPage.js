@@ -4,9 +4,9 @@ import { Provider } from "react-redux"
 import Spinner from '../components/Spinner';
 
 import configureStore from "../components/FormBuilder/store/configureStore";
-import FormBuilder_FormContainer from '../components/FormBuilder/containers/builder/FormContainer';
+import FormBuilder_Editor from '../components/FormBuilder/containers/builder/FormContainer';
 let FormBuilder = {
-  FormContainer: FormBuilder_FormContainer
+  Editor: FormBuilder_Editor
 };
 
 class BuilderPage extends React.Component {
@@ -24,6 +24,9 @@ class BuilderPage extends React.Component {
     this.setState({
       form
     });
+
+    // save to localStorage for "viewer" page
+    window.localStorage.setItem('foorious:formbuilder:form', JSON.stringify(form));
   }
 
   render() {
@@ -38,7 +41,7 @@ class BuilderPage extends React.Component {
             <h1><i className="fa fa-plus-square" /> New form</h1>
 
             <Provider store={store}>
-              <FormBuilder.FormContainer onSubmit={this.handleSubmit} />
+              <FormBuilder.Editor onSubmit={this.handleSubmit} />
             </Provider>
           </div>
         </div>
