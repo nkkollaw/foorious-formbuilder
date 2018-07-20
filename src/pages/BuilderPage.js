@@ -22,10 +22,6 @@ class BuilderPage extends React.Component {
   }
 
   render() {
-    const linkStyle = {
-      fontSize: '18px'
-    };
-
     const store = configureStore({
       notifications: [],
     });
