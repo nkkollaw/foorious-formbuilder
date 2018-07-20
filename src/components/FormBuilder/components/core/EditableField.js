@@ -64,7 +64,6 @@ class FieldPropertiesEditor extends Component {
             formData={formData}
             onChange={this.onChange.bind(this)}
             FieldTemplate={function(props) {
-              console.dir(props);
               const {id, classNames, label, help, required, description, errors, children} = props;
         
               return (
