@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormActionsContainer from "./../../containers/builder/FormActionsContainer";
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
+import SchemaField from "../../lib/react-jsonschema-form-0.40.0/src/components/fields/SchemaField.js";
 
 export default function Form(props) {
   const {error} = props;
