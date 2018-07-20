@@ -73,7 +73,7 @@ Include the component:
 </Provider>
 ```
 
-`onSubmit` will call your function and pass the form again in JSON format.
+`onSubmit` will call your function and pass the form data in JSON format.
 
 ## Roadmap
 
