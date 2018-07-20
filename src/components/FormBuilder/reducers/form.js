@@ -75,12 +75,13 @@ function removeField(state, name) {
 
 function updateField(state, name, schema, required, newLabel) {
   const existing = Object.keys(state.schema.properties);
-  const newName = slugify(newLabel);
-  if (name !== newName && existing.indexOf(newName) !== -1) {
-    // Field name already exists, we can't update state
-    const error = `Duplicate field name "${newName}", operation aborted.`;
-    return {...state, error};
-  }
+  const newName = name;
+  // if (newName && existing.indexOf(newName) !== -1) {
+  //   // Field name already exists, we can't update state
+  //   const error = `Duplicate field name "${newName}", operation aborted.`;
+
+  //   return {...state, error};
+  // }
   const requiredFields = state.schema.required || [];
   state.schema.properties[name] = schema;
   if (required) {
@@ -93,6 +94,7 @@ function updateField(state, name, schema, required, newLabel) {
   if (newName !== name) {
     return renameField(state, name, newName);
   }
+  
   return {...state, error: null};
 }
 
