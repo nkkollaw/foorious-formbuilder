@@ -10,6 +10,7 @@ import {
 import Layout from './pages/Layout';
 import IndexPage from './pages/IndexPage';
 import BuilderPage from './pages/BuilderPage';
+import ViewerPage from './pages/ViewerPage';
 
 class App extends React.Component {
   render() {
@@ -17,7 +18,8 @@ class App extends React.Component {
       <Router>
         <Layout>
           <Route exact path="/" component={IndexPage} />
-          <Route path="/builder/" component={BuilderPage} />
+          <Route path="/new" component={BuilderPage} />
+          <Route path="/view" component={ViewerPage} />
         </Layout>
       </Router>
     );
