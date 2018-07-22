@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 import { shouldRender, parseDateString, toDateString, pad } from "../../utils";
 import SelectWidget from "../widgets/SelectWidget";
@@ -126,17 +127,17 @@ class AltDateWidget extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== "production") {
-  AltDateWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    value: React.PropTypes.string,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    onChange: PropTypes.func,
-    time: PropTypes.bool,
-  };
-}
+// if (process.env.NODE_ENV !== "production") {
+//   AltDateWidget.propTypes = {
+//     schema: PropTypes.object.isRequired,
+//     id: PropTypes.string.isRequired,
+//     value: React.PropTypes.string,
+//     required: PropTypes.bool,
+//     disabled: PropTypes.bool,
+//     readonly: PropTypes.bool,
+//     onChange: PropTypes.func,
+//     time: PropTypes.bool,
+//   };
+// }
 
 export default AltDateWidget;

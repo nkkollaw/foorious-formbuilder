@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 
 import {
   defaultFieldValue,
@@ -53,31 +54,31 @@ function StringField(props) {
   return <TextWidget {...commonProps} placeholder={placeholder} />;
 }
 
-if (process.env.NODE_ENV !== "production") {
-  StringField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object.isRequired,
-    idSchema: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    formData: PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-    ]),
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.object,
-      ])).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    }),
-    formContext: PropTypes.object.isRequired,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-  };
-}
+// if (process.env.NODE_ENV !== "production") {
+//   StringField.propTypes = {
+//     schema: PropTypes.object.isRequired,
+//     uiSchema: PropTypes.object.isRequired,
+//     idSchema: PropTypes.object,
+//     onChange: PropTypes.func.isRequired,
+//     formData: PropTypes.oneOfType([
+//       React.PropTypes.string,
+//       React.PropTypes.number,
+//     ]),
+//     registry: PropTypes.shape({
+//       widgets: PropTypes.objectOf(PropTypes.oneOfType([
+//         PropTypes.func,
+//         PropTypes.object,
+//       ])).isRequired,
+//       fields: PropTypes.objectOf(PropTypes.func).isRequired,
+//       definitions: PropTypes.object.isRequired,
+//       formContext: PropTypes.object.isRequired,
+//     }),
+//     formContext: PropTypes.object.isRequired,
+//     required: PropTypes.bool,
+//     disabled: PropTypes.bool,
+//     readonly: PropTypes.bool,
+//   };
+// }
 
 StringField.defaultProps = {
   uiSchema: {},
