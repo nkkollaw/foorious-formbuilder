@@ -6,7 +6,23 @@ The original code was hacked to remove the dependency on Kinto, use Bootstrap 4 
 
 ## Installation
 
-Might write better instructions later, for now look in package.json, those are the libs you need and then of course you need to import the code as described below.
+Until the code is cleaned up, installing will suck because the old code relies on pretty outdated libraries. For now, include these libs into your `package.json` file (under `dependencies`), the follow the instructions in the "Usage" section:
+
+```json
+"prop-types": "^15.6.2",
+
+"redux": "^3.0.5",
+"redux-thunk": "^1.0.3",
+"react-redux": "^4.0.6",
+
+"string": "^3.3.1",
+"urlencode": "^1.1.0",
+"uuid": "^2.0.2"
+"jsonschema": "^1.2.4",
+
+"riek": "^1.0.2"
+"reactstrap": "^6.3.0",
+```
 
 ## Usage
 
@@ -28,6 +44,13 @@ import FormBuilder_FormContainer from '../components/FormBuilder/containers/buil
 const FormBuilder = {
   Editor: FormBuilder_FormContainer
 };
+```
+Create Redux store (possibly in your render function?):
+
+```js
+<Provider store={store}>
+  <FormBuilder.Editor onSubmit={handleSubmit} />
+</Provider>
 ```
 
 Add component, `onSubmit` will call your function and pass the form in JSON format (see "JSON" section below):
